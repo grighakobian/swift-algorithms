@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:swift-algorithms}",
+            "name": "Debug swift-algorithms",
+            "program": "${workspaceFolder:swift-algorithms}/.build/debug/swift-algorithms",
+            "preLaunchTask": "swift: Build Debug swift-algorithms"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:swift-algorithms}",
+            "name": "Release swift-algorithms",
+            "program": "${workspaceFolder:swift-algorithms}/.build/release/swift-algorithms",
+            "preLaunchTask": "swift: Build Release swift-algorithms"
+        }
+    ]
+}
