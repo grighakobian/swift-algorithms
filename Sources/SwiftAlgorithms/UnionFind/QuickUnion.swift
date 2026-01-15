@@ -12,9 +12,8 @@ public class QuickUnion {
 
   private func root(_ i: Int) -> Int {
     var _i = i
-    while _i != id[i] {
-      id[_i] = id[id[i]]
-      _i = id[i]
+    while _i != id[_i] {
+      _i = id[_i]
     }
     return _i
   }
