@@ -4,7 +4,7 @@ import Testing
 @Suite
 struct QuickFindTests {
   @Test
-  func testInitialization() {
+  func `initialization connects each element to itself`() {
     let qf = QuickFind(5)
     for i in 0..<5 {
       #expect(qf.isConnected(i, i))
@@ -12,7 +12,7 @@ struct QuickFindTests {
   }
 
   @Test
-  func testUnion() {
+  func `union merges two elements into same component`() {
     let qf = QuickFind(5)
     qf.union(0, 1)
     #expect(qf.isConnected(0, 1))
@@ -20,7 +20,7 @@ struct QuickFindTests {
   }
 
   @Test
-  func testTransitiveUnion() {
+  func `union is transitive when elements are chained`() {
     let qf = QuickFind(5)
     qf.union(0, 1)
     qf.union(1, 2)
@@ -28,7 +28,7 @@ struct QuickFindTests {
   }
 
   @Test
-  func testMultipleComponents() {
+  func `union maintains separate components when not merged`() {
     let qf = QuickFind(6)
     qf.union(0, 1)
     qf.union(2, 3)
@@ -42,7 +42,7 @@ struct QuickFindTests {
   }
 
   @Test
-  func testChainUnion() {
+  func `union of consecutive elements connects all elements in chain`() {
     let qf = QuickFind(10)
     for i in 0..<9 {
       qf.union(i, i + 1)
@@ -56,7 +56,7 @@ struct QuickFindTests {
   }
 
   @Test
-  func testComplexMerge() {
+  func `union of multiple components merges them correctly`() {
     let qf = QuickFind(7)
     qf.union(0, 1)
     qf.union(2, 3)
@@ -69,7 +69,7 @@ struct QuickFindTests {
   }
 
   @Test
-  func testUnionSameComponent() {
+  func `union within same component remains connected`() {
     let qf = QuickFind(5)
     qf.union(0, 1)
     qf.union(1, 2)

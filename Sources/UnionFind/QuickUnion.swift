@@ -1,10 +1,10 @@
 public class QuickUnion {
-  private var id: ContiguousArray<Int>
-  private var sz: ContiguousArray<Int>
+  private var id: Array<Int>
+  private var sz: Array<Int>
 
   public init(_ count: Int) {
-    self.id = ContiguousArray(repeating: 0, count: count)
-    self.sz = ContiguousArray(repeating: 0, count: count)
+    self.id = Array(repeating: 0, count: count)
+    self.sz = Array(repeating: 0, count: count)
     for i in 0..<count {
       self.id[i] = i
     }
