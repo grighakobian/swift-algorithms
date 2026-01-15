@@ -2,10 +2,10 @@ public class QuickUnion {
   private var id: ContiguousArray<Int>
   private var sz: ContiguousArray<Int>
 
-  public init(_ n: Int) {
-    self.id = ContiguousArray(repeating: 0, count: n)
-    self.sz = ContiguousArray(repeating: 0, count: n)
-    for i in 0..<n {
+  public init(_ count: Int) {
+    self.id = ContiguousArray(repeating: 0, count: count)
+    self.sz = ContiguousArray(repeating: 0, count: count)
+    for i in 0..<count {
       self.id[i] = i
     }
   }
@@ -19,13 +19,13 @@ public class QuickUnion {
     return _i
   }
 
-  public func connected(_ p: Int, _ q: Int) -> Bool {
-    return root(p) == root(q)
+  public func isConnected(_ lhs: Int, _ rhs: Int) -> Bool {
+    return root(lhs) == root(rhs)
   }
 
-  public func union(_ p: Int, _ q: Int) {
-    let i = root(p)
-    let j = root(q)
+  public func union(_ lhs: Int, _ rhs: Int) {
+    let i = root(lhs)
+    let j = root(rhs)
     if i == j {
       return
     }

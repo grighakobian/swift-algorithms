@@ -7,7 +7,7 @@ struct QuickUnionTests {
   func testInitialization() {
     let qu = QuickUnion(5)
     for i in 0..<5 {
-      #expect(qu.connected(i, i))
+      #expect(qu.isConnected(i, i))
     }
   }
 
@@ -15,8 +15,8 @@ struct QuickUnionTests {
   func testUnion() {
     let qu = QuickUnion(5)
     qu.union(0, 1)
-    #expect(qu.connected(0, 1))
-    #expect(!qu.connected(0, 2))
+    #expect(qu.isConnected(0, 1))
+    #expect(!qu.isConnected(0, 2))
   }
 
   @Test
@@ -24,7 +24,7 @@ struct QuickUnionTests {
     let qu = QuickUnion(5)
     qu.union(0, 1)
     qu.union(1, 2)
-    #expect(qu.connected(0, 2))
+    #expect(qu.isConnected(0, 2))
   }
 
   @Test
@@ -34,11 +34,11 @@ struct QuickUnionTests {
     qu.union(2, 3)
     qu.union(4, 5)
 
-    #expect(qu.connected(0, 1))
-    #expect(qu.connected(2, 3))
-    #expect(qu.connected(4, 5))
-    #expect(!qu.connected(0, 2))
-    #expect(!qu.connected(1, 4))
+    #expect(qu.isConnected(0, 1))
+    #expect(qu.isConnected(2, 3))
+    #expect(qu.isConnected(4, 5))
+    #expect(!qu.isConnected(0, 2))
+    #expect(!qu.isConnected(1, 4))
   }
 
   @Test
@@ -50,7 +50,7 @@ struct QuickUnionTests {
 
     for i in 0..<10 {
       for j in 0..<10 {
-        #expect(qu.connected(i, j))
+        #expect(qu.isConnected(i, j))
       }
     }
   }
@@ -62,10 +62,10 @@ struct QuickUnionTests {
     qu.union(2, 3)
     qu.union(4, 5)
     qu.union(1, 3)
-    #expect(qu.connected(0, 3))
-    #expect(qu.connected(2, 1))
-    #expect(!qu.connected(0, 4))
-    #expect(!qu.connected(5, 6))
+    #expect(qu.isConnected(0, 3))
+    #expect(qu.isConnected(2, 1))
+    #expect(!qu.isConnected(0, 4))
+    #expect(!qu.isConnected(5, 6))
   }
 
   @Test
@@ -75,8 +75,8 @@ struct QuickUnionTests {
     qu.union(2, 3)
     qu.union(1, 3)
 
-    #expect(qu.connected(0, 2))
-    #expect(qu.connected(1, 3))
+    #expect(qu.isConnected(0, 2))
+    #expect(qu.isConnected(1, 3))
   }
 
   @Test
@@ -86,11 +86,11 @@ struct QuickUnionTests {
     qu.union(1, 2)
     qu.union(2, 3)
 
-    #expect(qu.connected(0, 3))
+    #expect(qu.isConnected(0, 3))
 
     qu.union(4, 5)
     qu.union(5, 6)
     qu.union(3, 4)
-    #expect(qu.connected(0, 6))
+    #expect(qu.isConnected(0, 6))
   }
 }

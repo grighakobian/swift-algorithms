@@ -7,7 +7,7 @@ struct QuickFindTests {
   func testInitialization() {
     let qf = QuickFind(5)
     for i in 0..<5 {
-      #expect(qf.connected(i, i))
+      #expect(qf.isConnected(i, i))
     }
   }
 
@@ -15,8 +15,8 @@ struct QuickFindTests {
   func testUnion() {
     let qf = QuickFind(5)
     qf.union(0, 1)
-    #expect(qf.connected(0, 1))
-    #expect(!qf.connected(0, 2))
+    #expect(qf.isConnected(0, 1))
+    #expect(!qf.isConnected(0, 2))
   }
 
   @Test
@@ -24,7 +24,7 @@ struct QuickFindTests {
     let qf = QuickFind(5)
     qf.union(0, 1)
     qf.union(1, 2)
-    #expect(qf.connected(0, 2))
+    #expect(qf.isConnected(0, 2))
   }
 
   @Test
@@ -34,11 +34,11 @@ struct QuickFindTests {
     qf.union(2, 3)
     qf.union(4, 5)
 
-    #expect(qf.connected(0, 1))
-    #expect(qf.connected(2, 3))
-    #expect(qf.connected(4, 5))
-    #expect(!qf.connected(0, 2))
-    #expect(!qf.connected(1, 4))
+    #expect(qf.isConnected(0, 1))
+    #expect(qf.isConnected(2, 3))
+    #expect(qf.isConnected(4, 5))
+    #expect(!qf.isConnected(0, 2))
+    #expect(!qf.isConnected(1, 4))
   }
 
   @Test
@@ -50,7 +50,7 @@ struct QuickFindTests {
 
     for i in 0..<10 {
       for j in 0..<10 {
-        #expect(qf.connected(i, j))
+        #expect(qf.isConnected(i, j))
       }
     }
   }
@@ -62,10 +62,10 @@ struct QuickFindTests {
     qf.union(2, 3)
     qf.union(4, 5)
     qf.union(1, 3)
-    #expect(qf.connected(0, 3))
-    #expect(qf.connected(2, 1))
-    #expect(!qf.connected(0, 4))
-    #expect(!qf.connected(5, 6))
+    #expect(qf.isConnected(0, 3))
+    #expect(qf.isConnected(2, 1))
+    #expect(!qf.isConnected(0, 4))
+    #expect(!qf.isConnected(5, 6))
   }
 
   @Test
@@ -75,8 +75,8 @@ struct QuickFindTests {
     qf.union(1, 2)
     qf.union(0, 2)
 
-    #expect(qf.connected(0, 1))
-    #expect(qf.connected(0, 2))
-    #expect(qf.connected(1, 2))
+    #expect(qf.isConnected(0, 1))
+    #expect(qf.isConnected(0, 2))
+    #expect(qf.isConnected(1, 2))
   }
 }
