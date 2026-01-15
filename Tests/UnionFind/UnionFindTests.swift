@@ -1,5 +1,5 @@
 import Testing
-@testable import SwiftAlgorithms
+@testable import UnionFind
 
 @Suite
 struct QuickFindTests {
